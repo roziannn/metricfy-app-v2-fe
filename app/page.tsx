@@ -5,23 +5,103 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, CalendarDays, CircleDashed, ClockFading, MapIcon, Quote, Tent } from "lucide-react";
+import { ArrowRight, BarChart, BarChart3, CalendarDays, CircleDashed, ClockFading, MapIcon, Quote, Tag, Tent } from "lucide-react";
 import Footer from "@/components/layout/footer";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 export default function LandingPage() {
   /* ----------------------------- Dummy Data ----------------------------- */
   const previousCourses = [
-    { id: 1, title: "101 Logika Pemrograman Dasar", description: "Belajar logika dasar pemrograman.", imageUrl: "/images/project1.jpg" },
-    { id: 2, title: "Next.js Full Stack", description: "Belajar full stack development dengan Next.js.", imageUrl: "/images/project2.jpg" },
-    { id: 3, title: "Python untuk Data Analysis", description: "Analisis data dengan Python.", imageUrl: "/images/project3.jpg" },
-    { id: 4, title: "React Dasar", description: "Belajar dasar React.", imageUrl: "/images/project4.jpg" },
+    {
+      id: 1,
+      title: "101 Logika Pemrograman Dasar",
+      description: "Belajar logika dasar pemrograman.",
+      imageUrl: "/bootcamp.png",
+      level: "Pemula",
+    },
+    {
+      id: 2,
+      title: "Next.js Full Stack",
+      description: "Belajar full stack development dengan Next.js.",
+      imageUrl: "/bootcamp.png",
+
+      level: "Menengah",
+    },
+    {
+      id: 3,
+      title: "Python untuk Data Analysis",
+      description: "Analisis data dengan Python.",
+      imageUrl: "/bootcamp.png",
+
+      level: "Menengah",
+    },
+    {
+      id: 4,
+      title: "React Dasar",
+      description: "Belajar dasar React.",
+      imageUrl: "/bootcamp.png",
+
+      level: "Pemula",
+    },
+    {
+      id: 5,
+      title: "JavaScript Lanjutan",
+      description: "Meningkatkan skill JavaScript ke level lanjut.",
+      imageUrl: "/bootcamp.png",
+
+      level: "Lanjutan",
+    },
+    {
+      id: 6,
+      title: "Vue.js untuk Pemula",
+      description: "Belajar membangun aplikasi dengan Vue.js.",
+      imageUrl: "/bootcamp.png",
+
+      level: "Pemula",
+    },
+    {
+      id: 7,
+      title: "Django Full Stack",
+      description: "Membangun aplikasi web dengan Django.",
+      imageUrl: "/bootcamp.png",
+
+      level: "Menengah",
+    },
+    {
+      id: 8,
+      title: "TypeScript untuk Developer",
+      description: "Memahami dan menggunakan TypeScript dalam proyek modern.",
+      imageUrl: "/bootcamp.png",
+
+      level: "Menengah",
+    },
   ];
 
   const previousArticles = [
-    { id: 1, title: "Tips Belajar Coding Cepat", link: "#" },
-    { id: 2, title: "10 Best Practices React", link: "#" },
-    { id: 3, title: "Dasar-dasar Next.js 14", link: "#" },
-    { id: 4, title: "Meningkatkan Skill JavaScript", link: "#" },
+    {
+      id: 1,
+      title: "7 Cara Belajar Coding dengan Cepat dan Efektif",
+      link: "#",
+      shortDescription: "Pelajari cara efisien untuk memahami konsep coding dengan cepat dan praktis.",
+    },
+    {
+      id: 2,
+      title: "10 Best Practices yang Harus Diketahui Developer React",
+      link: "#",
+      shortDescription: "Tips dan trik menulis kode React yang lebih bersih, efisien, dan mudah dipelihara.",
+    },
+    {
+      id: 3,
+      title: "Panduan Lengkap Dasar-dasar Next.js 15 untuk Pemula",
+      link: "#",
+      shortDescription: "Panduan pemula untuk memahami fitur terbaru Next.js 14 dan penggunaannya dalam proyek.",
+    },
+    {
+      id: 4,
+      title: "Cara Meningkatkan Skill JavaScript dengan cepat",
+      link: "#",
+      shortDescription: "Strategi dan latihan untuk meningkatkan kemampuan JavaScript kamu secara signifikan.",
+    },
   ];
 
   /* -------------------------- Event & Bootcamp -------------------------- */
@@ -91,7 +171,7 @@ export default function LandingPage() {
           <CircleDashed /> Platform Belajar Coding Interaktif
         </Badge>
 
-        <h1 className="text-5xl font-bold dark:text-white mb-4">Tingkatkan Skillmu Hari Ini 🚀</h1>
+        <h1 className="text-5xl font-bold  mb-4">Tingkatkan Skillmu Hari Ini 🚀</h1>
         <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8 max-w-lg">Pelajari berbagai topik dari coding, desain, hingga produktivitas dengan kursus interaktif dan artikel praktis yang siap dipakai.</p>
 
         <div className="flex flex-col sm:flex-row gap-4">
@@ -123,36 +203,78 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ========================= FEATURED COURSES ======================== */}
-      <section id="courses" className="px-24 py-16 bg-zinc-50 dark:bg-zinc-900">
-        <h2 className="text-3xl font-semibold dark:text-white mb-6">Kelas Unggulan Siswa</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {previousCourses.map((course) => (
-            <div key={course.id} className="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg overflow-hidden transition-transform hover:scale-105">
-              <div className="h-40 overflow-hidden">{/* <img src={course.imageUrl} alt={course.title} className="w-full h-full object-cover transition-transform hover:scale-110" /> */}</div>
-              <div className="p-4">
-                <h3 className="text-lg font-semibold dark:text-white">{course.title}</h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">{course.description}</p>
-              </div>
-            </div>
-          ))}
+      <section className="px-24 py-16 bg-zinc-50 dark:bg-zinc-900">
+        <div className="flex items-center justify-between mb-10">
+          <div>
+            <h2 className="text-4xl font-semibold mb-4">Kelas Terpopuler</h2>
+            <p className="text-lg text-zinc-500 max-w-2xl mx-auto">Temukan kelas-kelas seru dan bermanfaat yang akan membantu kamu belajar lebih efektif dan mengasah skill-mu.</p>
+          </div>
+
+          <Button variant="outline" className="text-primary flex items-center gap-2">
+            Lihat Semua Kelas
+            <ArrowRight />
+          </Button>
         </div>
+
+        <Carousel className="w-full">
+          <CarouselContent className="gap-4 py-2">
+            {Array.from({ length: Math.ceil(previousCourses.length / 4) }).map((_, slideIndex) => (
+              <CarouselItem key={slideIndex} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                {previousCourses.slice(slideIndex * 4, slideIndex * 4 + 4).map((course) => (
+                  <Card key={course.id} className="overflow-hidden my-0 py-0 transition-transform hover:-translate-y-2 flex flex-col gap-2">
+                    {/* Image */}
+                    <div className="relative w-full h-48">
+                      <Image src={course.imageUrl || "/bootcamp.png"} alt={course.title} fill className="object-cover" />
+                    </div>
+
+                    {/* Content */}
+                    <CardContent className="flex flex-col flex-1 p-4">
+                      <h3 className="text-lg font-semibold">{course.title}</h3>
+                      <p className="text-sm text-zinc-600 dark:text-zinc-400 my-2 flex-1">{course.description}</p>
+
+                      <div className="flex items-center justify-between mt-2">
+                        <span className="flex items-center gap-1 px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
+                          <BarChart className="w-3 h-3" /> {course.level}
+                        </span>
+                        <span className="flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">
+                          <Tag className="w-3 h-3" /> GRATIS!
+                        </span>
+                      </div>
+
+                      <Button variant="default" className="mt-5">
+                        Klaim Sekarang
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+
+          <CarouselPrevious className="bg-yellow-400 hover:bg-yellow-500 text-white w-12 h-12 hover:text-white border-white border-3 rounded-full absolute top-1/2 -left-4 -translate-y-1/2 flex items-center justify-center shadow-lg" />
+          <CarouselNext className="bg-yellow-500 hover:bg-yellow-500  text-white w-12 h-12 hover:text-white border-white border-3 rounded-full absolute top-1/2 -right-4 -translate-y-1/2 flex items-center justify-center shadow-lg" />
+        </Carousel>
       </section>
 
       {/* =========================== ARTICLES ============================= */}
-      <section id="articles" className="px-24 py-16 bg-zinc-100 dark:bg-zinc-900">
-        <h2 className="text-3xl font-semibold dark:text-white mb-6">Artikel Penambah Wawasanmu</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <section id="articles" className="px-24 pb-24 pt-20 bg-zinc-50 dark:bg-zinc-900">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-semibold mb-4 ">Artikel, Berita dan Insight Terbaru</h2>
+          <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto">Temukan berbagai artikel dan berita inspiratif yang akan menambah wawasan, memperluas pengetahuan, dan membantumu tetap up-to-date dunia teknologi.</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {previousArticles.map((article) => (
-            <div key={article.id} className="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-lg overflow-hidden transition-transform hover:scale-105">
-              <div className="h-40 flex items-center justify-center bg-gray-200 dark:bg-gray-700">
-                <span className="text-gray-500 dark:text-gray-300 text-sm">No Image</span>
+            <div key={article.id} className="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl overflow-hidden transition-transform hover:-translate-y-2">
+              {/* Image */}
+              <div className="relative w-full h-48">
+                <Image src={article.imageUrl || "/bootcamp.png"} alt={article.title} fill className="object-cover" />
               </div>
-              <div className="p-4">
-                <h3 className="text-lg font-semibold dark:text-white">{article.title}</h3>
-                <a href={article.link} className="mt-2 inline-block text-blue-600 dark:text-blue-400 hover:underline text-sm">
-                  Read More
-                </a>
+
+              {/* Content */}
+              <div className="p-4 flex flex-col flex-1">
+                <h3 className="text-lg font-semibold mb-4">{article.title}</h3>
+                <p className="text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed flex-1">{article.shortDescription}</p>
               </div>
             </div>
           ))}
