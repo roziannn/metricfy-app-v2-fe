@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, BarChart, CalendarDays, CircleDashed, ClockFading, FunctionSquare, MapIcon, Quote, Tag, Tent, Code, Palette, Cpu, Globe, BarChart3, PenTool } from "lucide-react";
+import { ArrowRight, BarChart, CalendarDays, CircleDashed, ClockFading, FunctionSquare, MapIcon, Quote, Tag, Tent, Code, Palette, Cpu, Globe, BarChart3, PenTool, Newspaper, Speaker, Zap, Sword } from "lucide-react";
 import Footer from "@/components/layout/footer";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Link from "next/link";
@@ -17,32 +17,29 @@ export default function LandingPage() {
     {
       id: 1,
       title: "101 Logika Pemrograman Dasar",
-      description: "Belajar logika dasar pemrograman.",
-      imageUrl: "/bootcamp.png",
+      description: "Belajar logika dasar pemrograman",
+      imageUrl: "/img/courses/courses-1.png",
       level: "Pemula",
     },
     {
       id: 2,
-      title: "Next.js Full Stack",
-      description: "Belajar full stack development dengan Next.js.",
-      imageUrl: "/bootcamp.png",
-
+      title: "Pengenalan Coding",
+      description: "Belajar ruang lingkup coding",
+      imageUrl: "/img/courses/courses-2.png",
       level: "Menengah",
     },
     {
       id: 3,
       title: "Python untuk Data Analysis",
       description: "Analisis data dengan Python.",
-      imageUrl: "/bootcamp.png",
-
+      imageUrl: "/img/courses/courses-3.png",
       level: "Menengah",
     },
     {
       id: 4,
       title: "React Dasar",
       description: "Belajar dasar React.",
-      imageUrl: "/bootcamp.png",
-
+      imageUrl: "/img/courses/courses-1.png",
       level: "Pemula",
     },
     {
@@ -82,27 +79,31 @@ export default function LandingPage() {
   const previousArticles = [
     {
       id: 1,
-      title: "7 Cara Belajar Coding dengan Cepat dan Efektif",
+      title: "Bikin Website Mini-game Bareng Teman!",
       link: "#",
-      shortDescription: "Pelajari cara efisien untuk memahami konsep coding dengan cepat dan praktis.",
+      shortDescription: "Bikin game interaktif sederhana yang bisa dimainkan bareng teman tanpa ribet",
+      imageUrl: "/img/article-news/article-1.png",
     },
     {
       id: 2,
-      title: "10 Best Practices yang Harus Diketahui Developer React",
+      title: "AI Bisa Bantu Nulis Kode? Coba ChatGPT Hack Ini!",
       link: "#",
-      shortDescription: "Tips dan trik menulis kode React yang lebih bersih, efisien, dan mudah dipelihara.",
+      shortDescription: "Tips menggunakan AI untuk bantu nge-debug, bikin fungsi, atau ide coding",
+      imageUrl: "/img/article-news/article-2.png",
     },
     {
       id: 3,
-      title: "Panduan Lengkap Dasar-dasar Next.js 15 untuk Pemula",
+      title: "Buat Bot Chat Discord Sendiri dalam 1 Jam",
       link: "#",
-      shortDescription: "Panduan pemula untuk memahami fitur terbaru Next.js 14 dan penggunaannya dalam proyek.",
+      shortDescription: "Ikuti langkah cepat bikin bot Discord yang bisa kirim pesan otomatis dan fun",
+      imageUrl: "/img/article-news/article-3.png",
     },
     {
       id: 4,
-      title: "Cara Meningkatkan Skill JavaScript dengan cepat",
+      title: "React + Anime.js: Animasi Epic Tanpa Ribet",
       link: "#",
-      shortDescription: "Strategi dan latihan untuk meningkatkan kemampuan JavaScript kamu secara signifikan.",
+      shortDescription: "Campur React dan Anime.js untuk bikin animasi keren, cocok buat portofolio atau projek mini.",
+      imageUrl: "/img/article-news/article-4.png",
     },
   ];
 
@@ -134,6 +135,25 @@ export default function LandingPage() {
     },
   };
 
+  const challenges = [
+    {
+      id: 1,
+      title: "Build a Todo App",
+      level: "Pemula",
+      tag: "New",
+      submissionDate: "31 Okt 2025",
+      imageUrl: "/img/article-news/article-1.png",
+    },
+    {
+      id: 2,
+      title: "Weather App",
+      level: "Menengah",
+      tag: "Trending",
+      submissionDate: "25 Okt 2025",
+      imageUrl: "/img/article-news/article-3.png",
+    },
+  ];
+
   const current = content[active];
 
   /* ----------------------------- Main Layout ---------------------------- */
@@ -146,16 +166,16 @@ export default function LandingPage() {
             <FunctionSquare className="mr-1" size={24} /> Metricfy
           </span>
         </div>
-        <div className="flex items-center gap-10 font-medium">
+        <div className="text-md flex items-center gap-10 font-medium">
           {["Courses", "Articles", "Showcase", "Event", "Contact"].map((link) => (
-            <a key={link} href={`#${link.toLowerCase()}`} className="hover:underline">
+            <a key={link} href={`#${link.toLowerCase()}`} className="hover:text-primary">
               {link}
             </a>
           ))}
           <div className="flex flex-row items-center gap-4">
             <Button>Masuk</Button>
-            <Link href="/register" className="text-primary font-medium">
-              Register
+            <Link href="/signup" className="font-medium">
+              Sign Up
             </Link>
           </div>
         </div>
@@ -241,7 +261,6 @@ export default function LandingPage() {
           <div className="absolute top-20 left-1/4 w-72 h-72 bg-indigo-300/20 blur-3xl rounded-full"></div>
           <div className="absolute bottom-10 right-1/4 w-64 h-64 bg-violet-400/20 blur-3xl rounded-full"></div>
         </div>
-
         <div className="absolute bottom-0 left-0 w-full h-24 bg-linear-to-t from-violet-100 dark:from-indigo-950 to-transparent pointer-events-none" />
       </section>
 
@@ -305,6 +324,82 @@ export default function LandingPage() {
           <CarouselNext className="bg-yellow-500 hover:bg-yellow-500  text-white w-12 h-12 hover:text-white border-white border-3 rounded-full absolute top-1/2 -right-4 -translate-y-1/2 flex items-center justify-center shadow-lg" />
         </Carousel>
       </section>
+
+      {/* =========================== CHALLENGE SECTION ========================== */}
+      <section
+        id="challenge"
+        className="relative px-24 py-24 overflow-hidden 
+       bg-zinc-50 
+       [background-image:radial-gradient(rgba(99,102,241,0.15)_1.2px,transparent_1.8px)] 
+       [background-size:22px_22px]"
+      >
+        {/* Blur circles background */}
+        <div className="absolute top-0 left-1/4 w-72 h-72 bg-indigo-300/20 blur-3xl rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-10 right-1/4 w-64 h-64 bg-violet-400/20 blur-3xl rounded-full pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+          {/* LEFT SIDE: TEXT & BUTTON */}
+          <div className="space-y-6">
+            <h2 className="text-4xl font-semibold mb-4 flex items-center gap-2 text-zinc-800">
+              Weekly Coding
+              <span
+                className="px-5 py-1 text-3xl font-semibold text-white 
+                         bg-linear-to-r from-yellow-400 via-yellow-500 to-amber-500
+                         backdrop-blur-xl rounded-full border border-white/70 shadow-lg"
+              >
+                Challenge
+              </span>
+            </h2>
+
+            <p className="text-lg text-zinc-600 max-w-lg">Uji kemampuan coding-mu setiap minggu dengan tantangan seru untuk menambah skill, pengalaman, dan portofolio.</p>
+
+            <Button
+              size="lg"
+              className="px-6 py-3 mb-4 text-base font-semibold rounded-xl 
+                   bg-linear-to-r from-zinc-700 to-zinc-900 text-white 
+                   hover:scale-105 transition-all duration-300 shadow-lg 
+                   hover:shadow-yellow-300/40 flex items-center gap-2 w-max"
+            >
+              <Sword /> Ikuti Challenge
+            </Button>
+          </div>
+
+          {/* RIGHT SIDE: HORIZONTAL SCROLL CHALLENGE CARDS */}
+          <div className="flex overflow-x-auto gap-6 py-2 scrollbar-none">
+            {challenges.map((challenge) => (
+              <Card
+                key={challenge.id}
+                className="relative w-72 shrink-0 gap-4
+                     bg-linear-to-br from-indigo-500 via-indigo-400 to-indigo-600
+                     backdrop-blur-xl border border-white rounded-2xl shadow-lg
+                     hover:shadow-xl hover:-translate-y-2 transition-all duration-500 overflow-hidden my-0 py-0"
+              >
+                <div className="relative w-full h-52">
+                  <Image src={challenge.imageUrl} alt={challenge.title} fill className="object-cover rounded-t-2xl transition-transform duration-700 group-hover:scale-105" />
+                  {/* Overlay glossy */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/20 to-transparent" />
+                  {/* Tag / badge */}
+                  <Badge
+                    className="absolute top-3 left-3 flex items-center gap-1 bg-white/20 backdrop-blur-md
+                         text-black text-xs px-2 py-1 rounded-full border border-white/30 shadow-inner"
+                  >
+                    <Zap className="w-3 h-3" /> {challenge.tag}
+                  </Badge>
+                </div>
+
+                <CardContent className="pb-4 flex flex-col gap-2">
+                  <h3 className="text-lg font-semibold text-white">{challenge.title}</h3>
+                  <p className="text-white text-sm">Dapatkan point 300 XP untuk akses bootcamp premium</p>
+                  <Badge className="my-1 text-xs bg-blue-100/90 border-blue-300 text-blue-600 flex items-center gap-1" variant="outline">
+                    <ClockFading /> {challenge.submissionDate}
+                  </Badge>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* =========================== ARTICLES ============================= */}
       <section id="articles" className="px-24 pb-24 pt-20 bg-zinc-50 dark:bg-zinc-900">
         <div className="text-center mb-12">
@@ -314,10 +409,10 @@ export default function LandingPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {previousArticles.map((article) => (
-            <div key={article.id} className="flex flex-col bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl overflow-hidden transition-transform hover:-translate-y-2">
+            <div key={article.id} className="flex flex-col overflow-hidden transition-transform hover:-translate-y-2">
               {/* Image */}
               <div className="relative w-full h-48">
-                <Image src={article.imageUrl || "/bootcamp.png"} alt={article.title} fill className="object-cover" />
+                <Image src={article.imageUrl} alt={article.title} fill className="rounded-xl object-cover" />
               </div>
 
               {/* Content */}
@@ -328,7 +423,15 @@ export default function LandingPage() {
             </div>
           ))}
         </div>
+
+        {/* Button Lihat Selengkapnya */}
+        <div className="flex justify-center mt-6">
+          <Button variant="outline" size="lg">
+            Lihat Selengkapnya
+          </Button>
+        </div>
       </section>
+
       {/* ========================= ACTIVITIES SECTION ========================= */}
       <section id="activities" className="relative px-24 py-20 bg-primary dark:bg-zinc-900 overflow-hidden transition-colors">
         {/* Background grid kotak-kotak halus */}
