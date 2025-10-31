@@ -10,6 +10,8 @@ import Footer from "@/components/layout/footer";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Logo from "@/components/logo";
+import Navbar from "@/components/layout/navbar";
 
 export default function LandingPage() {
   /* ----------------------------- Dummy Data ----------------------------- */
@@ -160,26 +162,7 @@ export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-screen font-sans bg-zinc-100 dark:bg-black">
       {/* ============================== NAVBAR ============================== */}
-      <nav className="sticky top-0 z-50 flex items-center justify-between px-24 py-4 bg-white/50 dark:bg-black/80 backdrop-blur-sm ">
-        <div className="flex items-center gap-4">
-          <span className="flex items-center font-bold text-xl">
-            <FunctionSquare className="mr-1" size={24} /> Metricfy
-          </span>
-        </div>
-        <div className="text-md flex items-center gap-10 font-medium">
-          {["Courses", "Articles", "Showcase", "Event", "Contact"].map((link) => (
-            <a key={link} href={`#${link.toLowerCase()}`} className="hover:text-primary">
-              {link}
-            </a>
-          ))}
-          <div className="flex flex-row items-center gap-4">
-            <Button>Masuk</Button>
-            <Link href="/signup" className="font-medium">
-              Sign Up
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
       {/* ============================== HERO =============================== */}
       <section
         className="relative flex flex-col items-center text-center py-32 px-6 sm:px-24 bg-white dark:bg-black overflow-hidden"

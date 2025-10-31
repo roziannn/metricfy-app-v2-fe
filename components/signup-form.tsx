@@ -38,7 +38,7 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
               </Field>
               <Field>
                 <Button type="submit">Create Account</Button>
-                <FieldDescription className="text-center pt-4">
+                <FieldDescription className="text-center text-sm text-zinc-600 dark:text-zinc-400 pt-8">
                   Already have an account? <a href="#">Sign in</a>
                 </FieldDescription>
               </Field>
@@ -46,7 +46,8 @@ export function SignupForm({ className, ...props }: React.ComponentProps<"div">)
           </form>
         </CardContent>
       </Card>
-      <FieldDescription className="px-6 text-center">By clicking continue, you agree to our Terms of Service and Privacy Policy.</FieldDescription>
+      <FieldDescription className="px-6 pb-6 text-center">By clicking continue, you agree to our Terms of Service and Privacy Policy.</FieldDescription>
+      <div className="relative text-center text-xs text-zinc-500 dark:text-zinc-400 z-10">© {new Date().getFullYear()} Metricfy</div>
     </div>
   );
 }
