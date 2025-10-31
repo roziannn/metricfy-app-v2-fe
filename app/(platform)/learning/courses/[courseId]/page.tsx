@@ -51,9 +51,9 @@ export default async function CourseDetailPage({ params }: { params: { courseId:
               <ArrowLeft /> Kembali
             </Button>
           </Link>
-          <Badge variant="outline" className="text-xs px-3 py-1 bg-amber-50 text-amber-700 border-amber-200">
+          {/* <Badge variant="outline" className="text-xs px-3 py-1 bg-amber-50 text-amber-700 border-amber-200">
             {progressPercentage}% Selesai
-          </Badge>
+          </Badge> */}
         </div>
 
         <div>
@@ -84,11 +84,7 @@ export default async function CourseDetailPage({ params }: { params: { courseId:
       </main>
 
       {/* Sidebar */}
-      <aside
-        className="md:w-80 shrink-0 border-t md:border-t-0 md:border-l border-gray-200 dark:border-gray-700 
-             bg-white rounded-lg md:rounded-none shadow-sm md:shadow-none 
-             md:sticky md:top-0 md:h-screen md:overflow-y-auto px-4 md:px-6 py-4"
-      >
+      <aside className="md:w-80 shrink-0 bg-white dark:bg-gray-900 rounded-lg shadow-sm md:shadow-none border md:border-l border-gray-200 dark:border-gray-700 md:sticky md:top-0 md:h-screen flex flex-col overflow-y-auto px-4 py-4">
         {/* Diskusi Kelas */}
         <div className="mb-6 bg-secondary/40 rounded-xl p-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -102,14 +98,21 @@ export default async function CourseDetailPage({ params }: { params: { courseId:
           </Link>
         </div>
 
-        <h3 className="text-sm font-semibold text-gray-700 mb-3 border-b pb-2">Daftar Modul</h3>
+        {/* Sidebar Header */}
+        <div className="mb-4">
+          <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 border-b pb-2 mb-2">Daftar Modul</h3>
+          <span className="text-xs text-gray-500 dark:text-gray-400">
+            {completedModules}/{totalModules} modul selesai ({progressPercentage}%)
+          </span>
+        </div>
 
-        <ul className="space-y-2">
+        {/* List Modul */}
+        <ul className="space-y-1 flex-1">
           {course.modules.map((modul, index) => (
             <Link key={index} href={`/learning/courses/${courseId}/${index + 1}`} className="block">
-              <li className="flex items-center gap-3 py-2 px-3 rounded-md hover:bg-gray-50 transition">
-                {modul.completed ? <CheckCircle2 className="h-4 w-4 text-green-600 shrink-0" /> : <Circle className="h-4 w-4 text-gray-300 shrink-0" />}
-                <span className={`text-sm ${modul.completed ? "text-gray-800" : "text-gray-500"}`}>{modul.title}</span>
+              <li className="flex items-center gap-3 py-2 px-3 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                {modul.completed ? <CheckCircle2 className="h-4 w-4 text-green-600 shrink-0" /> : <Circle className="h-4 w-4 text-gray-300 dark:text-gray-500 shrink-0" />}
+                <span className={`text-sm ${modul.completed ? "text-gray-800 dark:text-gray-200" : "text-gray-500 dark:text-gray-400"}`}>{modul.title}</span>
               </li>
             </Link>
           ))}

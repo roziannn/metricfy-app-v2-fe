@@ -109,7 +109,7 @@ function CourseCard({ course }: { course: (typeof courses)[0] }) {
       <CardFooter className="p-0 mt-2">
         <Link href={`/learning/courses/${course.id}`} className="w-full">
           <Button variant={isCompleted ? "secondary" : "outline"} size="sm" className="w-full font-medium tracking-wide">
-            {isCompleted ? "Lihat Sertifikat" : "Lanjutkan Belajar"}
+            {isCompleted ? "Lihat Course" : "Lanjutkan Belajar"}
           </Button>
         </Link>
       </CardFooter>

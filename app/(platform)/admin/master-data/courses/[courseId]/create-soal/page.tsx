@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { RichTextEditor } from "@/components/rich-text-editor/editor";
 import { ArrowLeft, Save } from "lucide-react";
-// import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export default function CreateSoalPage({ params }: { params: { courseId: string } }) {
   const router = useRouter();
@@ -44,7 +44,7 @@ export default function CreateSoalPage({ params }: { params: { courseId: string 
   };
 
   return (
-    <div className="w-5xl mx-auto">
+    <div className="max-w-5xl mx-auto">
       {/* Header Buttons */}
       <div className="flex justify-between mb-4">
         <Button variant="outline" onClick={() => router.back()}>
@@ -79,7 +79,7 @@ export default function CreateSoalPage({ params }: { params: { courseId: string 
               <div className="grid grid-cols-1 gap-3 mt-2">
                 {(["a", "b", "c", "d"] as const).map((key) => (
                   <div key={key} className="flex items-center gap-3">
-                    {/* <Checkbox checked={form.correctAnswer === key} onCheckedChange={() => handleCorrectAnswer(key)} id={`checkbox-${key}`} /> */}
+                    <Checkbox checked={form.correctAnswer === key} onCheckedChange={() => handleCorrectAnswer(key)} id={`checkbox-${key}`} />
                     <Label htmlFor={`checkbox-${key}`} className="w-5 font-medium uppercase">
                       {key}.
                     </Label>

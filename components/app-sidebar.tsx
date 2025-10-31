@@ -28,14 +28,13 @@ const data = {
       items: [
         { title: "My Courses", url: "/learning/courses" },
         // { title: "My Bootcamp", url: "/learning/path" },
-        { title: "Certificates", url: "/learning/certificates" },
-        { title: "Points & Badge", url: "/learning/certificates" },
+        { title: "My Badges", url: "/learning/badges" },
         // { title: "Event", url: "/learning/event" },
       ],
     },
     {
       title: "Showcase",
-      url: "/dashboard",
+      url: "/showcase",
       icon: ProjectorIcon,
     },
     {
@@ -60,6 +59,8 @@ const data = {
       items: [
         { title: "Courses", url: "/admin/master-data/courses" },
         { title: "Challenge", url: "/admin/master-data/challenge" },
+        { title: "Article", url: "/admin/master-data/article" },
+        { title: "Template", url: "/admin/master-data/template" },
       ],
     },
     {
@@ -74,23 +75,6 @@ const data = {
       ],
     },
   ],
-  // navSecondary: [
-  //   {
-  //     title: "Support",
-  //     url: "#",
-  //     icon: LifeBuoy,
-  //   },
-  //   {
-  //     title: "Feedback",
-  //     url: "#",
-  //     icon: Send,
-  //   },
-  // ],
-  // projects: [
-  //   { name: "Design Engineering", url: "#", icon: Frame },
-  //   { name: "Upcoming", url: "#", icon: Rocket },
-  //   { name: "Dashboard", url: "#", icon: LayoutDashboard },
-  // ],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {

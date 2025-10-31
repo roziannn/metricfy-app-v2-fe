@@ -29,7 +29,7 @@ export default function CourseDetailPage() {
   ]);
 
   return (
-    <div className="w-5xl mx-auto space-y-6">
+    <div className="max-w-5xl mx-auto space-y-6">
       {/* Course Info */}
       <div className="flex justify-between mb-4">
         <Button variant="outline">

@@ -96,11 +96,11 @@ export default function AdminChallengePage() {
                   <Button size="xs" variant="outline" className="text-blue-600 hover:text-blue-700">
                     <Edit className="h-4 w-4" />
                   </Button>
-                  <Button size="xs" variant="outline" className="text-red-600 hover:text-red-700">
-                    <Archive className="h-4 w-4" />
-                  </Button>
                   <Button size="xs" variant="outline" className="text-green-600 hover:text-green-700">
                     <Users className="h-4 w-4" />
+                  </Button>
+                  <Button size="xs" variant="outline" className="text-red-600 hover:text-red-700">
+                    <Archive className="h-4 w-4" />
                   </Button>
                 </div>
               </TableCell>

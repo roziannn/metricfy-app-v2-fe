@@ -9,11 +9,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { RichTextEditor } from "@/components/rich-text-editor/editor";
 import { ArrowLeft, Save } from "lucide-react";
 
-export default function CreateSectionPage({ params }: { params: { courseId: string } }) {
+export default function CreatePostPage() {
   const router = useRouter();
   const [form, setForm] = useState({
     title: "",
-    videoUrl: "",
+    author: "",
+    category: "",
     imgUrl: "",
     content: "",
   });
@@ -22,7 +23,7 @@ export default function CreateSectionPage({ params }: { params: { courseId: stri
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Submit Section for courseId:", params.courseId, form);
+    console.log("Submit new post:", form);
   };
 
   return (
@@ -31,31 +32,39 @@ export default function CreateSectionPage({ params }: { params: { courseId: stri
         <Button variant="outline" onClick={() => router.back()}>
           <ArrowLeft /> Kembali
         </Button>
-        <Button variant="default" onClick={() => router.back()}>
+        <Button variant="default" onClick={handleSubmit}>
           <Save /> Simpan
         </Button>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle>Buat Section Baru</CardTitle>
+          <CardTitle>Create New Blog Post</CardTitle>
         </CardHeader>
         <CardContent>
           <form className="grid grid-cols-1 gap-6" onSubmit={handleSubmit}>
             <div>
-              <Label htmlFor="title">Judul Section</Label>
-              <Input id="title" value={form.title} onChange={(e) => handleChange("title", e.target.value)} placeholder="Masukkan judul section" required />
+              <Label htmlFor="title">Post Title</Label>
+              <Input id="title" value={form.title} onChange={(e) => handleChange("title", e.target.value)} placeholder="Enter post title" required />
             </div>
+
             <div>
-              <Label htmlFor="videoUrl">Video Materi (URL)</Label>
-              <Input id="videoUrl" value={form.videoUrl} onChange={(e) => handleChange("videoUrl", e.target.value)} placeholder="Masukkan link video" required />
+              <Label htmlFor="author">Author</Label>
+              <Input id="author" value={form.author} onChange={(e) => handleChange("author", e.target.value)} placeholder="Enter author name" required />
             </div>
+
             <div>
-              <Label htmlFor="imgUrl">Gambar (URL)</Label>
-              <Input id="imgUrl" value={form.imgUrl} onChange={(e) => handleChange("imgUrl", e.target.value)} placeholder="Masukkan link gambar" />
+              <Label htmlFor="category">Category</Label>
+              <Input id="category" value={form.category} onChange={(e) => handleChange("category", e.target.value)} placeholder="Enter post category" required />
             </div>
+
             <div>
-              <Label>Konten Materi</Label>
+              <Label htmlFor="imgUrl">Feature Image (URL)</Label>
+              <Input id="imgUrl" value={form.imgUrl} onChange={(e) => handleChange("imgUrl", e.target.value)} placeholder="Enter image URL" />
+            </div>
+
+            <div>
+              <Label>Post Content</Label>
               <RichTextEditor
                 field={{
                   value: form.content,
