@@ -5,9 +5,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, BarChart, BarChart3, CalendarDays, CircleDashed, ClockFading, MapIcon, Quote, Tag, Tent } from "lucide-react";
+import { ArrowRight, BarChart, CalendarDays, CircleDashed, ClockFading, FunctionSquare, MapIcon, Quote, Tag, Tent, Code, Palette, Cpu, Globe, BarChart3, PenTool } from "lucide-react";
 import Footer from "@/components/layout/footer";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Link from "next/link";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function LandingPage() {
   /* ----------------------------- Dummy Data ----------------------------- */
@@ -138,71 +140,112 @@ export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-screen font-sans bg-zinc-100 dark:bg-black">
       {/* ============================== NAVBAR ============================== */}
-      <nav className="sticky top-0 z-50 flex items-center justify-between px-24 py-6 bg-white/50 dark:bg-black/80 backdrop-blur-sm border-b border-slate-200">
+      <nav className="sticky top-0 z-50 flex items-center justify-between px-24 py-4 bg-white/50 dark:bg-black/80 backdrop-blur-sm ">
         <div className="flex items-center gap-4">
-          <Image src="/next.svg" alt="Logo" width={100} height={20} className="dark:invert" />
+          <span className="flex items-center font-bold text-xl">
+            <FunctionSquare className="mr-1" size={24} /> Metricfy
+          </span>
         </div>
-        <div className="flex items-center gap-12 text-sm font-medium">
+        <div className="flex items-center gap-10 font-medium">
           {["Courses", "Articles", "Showcase", "Event", "Contact"].map((link) => (
             <a key={link} href={`#${link.toLowerCase()}`} className="hover:underline">
               {link}
             </a>
           ))}
-          <div className="flex gap-4">
-            <Button size="sm">Sign In</Button>
-            <Button variant="outline" size="sm">
+          <div className="flex flex-row items-center gap-4">
+            <Button>Masuk</Button>
+            <Link href="/register" className="text-primary font-medium">
               Register
-            </Button>
+            </Link>
           </div>
         </div>
       </nav>
-
       {/* ============================== HERO =============================== */}
       <section
         className="relative flex flex-col items-center text-center py-32 px-6 sm:px-24 bg-white dark:bg-black overflow-hidden"
         style={{
           backgroundImage: `
-            repeating-linear-gradient(0deg, rgba(99,102,241,0.05) 0px, rgba(99,102,241,0.05) 1px, transparent 1px, transparent 20px),
-            repeating-linear-gradient(90deg, rgba(99,102,241,0.05) 0px, rgba(99,102,241,0.05) 1px, transparent 1px, transparent 20px)
-          `,
+      repeating-linear-gradient(0deg, rgba(99,102,241,0.05) 0px, rgba(99,102,241,0.05) 1px, transparent 1px, transparent 20px),
+      repeating-linear-gradient(90deg, rgba(99,102,241,0.05) 0px, rgba(99,102,241,0.05) 1px, transparent 1px, transparent 20px)
+    `,
         }}
       >
-        <Badge variant="secondary" className="mb-6 px-6 py-1 font-semibold flex items-center gap-2">
-          <CircleDashed /> Platform Belajar Coding Interaktif
+        <Badge
+          variant="secondary"
+          className="mb-6 px-6 py-2 font-semibold flex items-center gap-2 rounded-full
+             bg-amber-50/70 dark:bg-amber-900/20 border border-amber-200/40 dark:border-amber-700/40
+             text-amber-700 dark:text-amber-300 backdrop-blur-sm"
+        >
+          <CircleDashed className="w-4 h-4 text-amber-500 dark:text-amber-400" />
+          Platform Belajar Coding Interaktif
         </Badge>
 
-        <h1 className="text-5xl font-bold  mb-4">Tingkatkan Skillmu Hari Ini 🚀</h1>
-        <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8 max-w-lg">Pelajari berbagai topik dari coding, desain, hingga produktivitas dengan kursus interaktif dan artikel praktis yang siap dipakai.</p>
+        <h1 className="text-5xl font-bold mb-4">Tingkatkan Skillmu Hari Ini 🚀</h1>
+        <p className="text-lg mb-8 max-w-lg">Pelajari berbagai topik dari coding, desain, hingga produktivitas dengan kursus interaktif dan artikel praktis yang siap dipakai.</p>
 
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Button size="lg" className="shadow-2xl">
+        <div className="flex flex-col sm:flex-row items-center gap-4">
+          <Button
+            size="lg"
+            className="px-8 py-6 text-lg font-semibold rounded-xl 
+        bg-linear-to-r from-amber-400 via-yellow-400 to-amber-500 
+        border border-amber-300/30 shadow-[0_0_20px_rgba(251,191,36,0.25)]
+        hover:shadow-[0_0_30px_rgba(251,191,36,0.35)]
+        hover:brightness-110 hover:scale-[1.02]
+        text-white transition-all duration-300"
+          >
             Mulai Belajar
           </Button>
-          <Button variant="outline" size="lg">
-            Lihat Artikel
-          </Button>
+
+          {/* Separator */}
+          <span className="text-2xl text-zinc-300 select-none">|</span>
+
+          {/* Avatar & Info */}
+          <div className="flex flex-col items-center sm:items-start">
+            <div className="flex -space-x-3 mb-2">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <Avatar key={i} className="border-2 border-white w-10 h-10">
+                  <AvatarImage src={`/img/avatars/avatar-${i}.png`} alt={`Avatar ${i}`} />
+                  <AvatarFallback>U{i}</AvatarFallback>
+                </Avatar>
+              ))}
+            </div>
+            <p className="text-sm  dark:text-zinc-300 font-medium">
+              <span className="text-amber-500 font-semibold">100 Ribu+</span> Siswa Indonesia yang terus <br /> tumbuh setiap harinya!
+            </p>
+          </div>
         </div>
       </section>
 
       {/* =========================== POPULAR TAGS ========================== */}
-      <section className="py-12 bg-zinc-100 dark:bg-zinc-900 overflow-hidden relative">
-        <div className="flex gap-6 animate-marquee whitespace-nowrap">
-          {["Digital Marketing", "Web Development", "UI/UX Design", "Data Analysis", "Python Programming", "Next.js", "React.js"].map((skill, index) => (
-            <Badge key={index} variant="outline" className="px-6 py-4 text-sm font-semibold rounded-4xl shadow-sm cursor-pointer hover:scale-110 transition-transform">
-              {skill}
-            </Badge>
+      <section className="relative py-12 bg-linear-to-br from-indigo-50 via-white to-violet-100 dark:from-zinc-900 dark:via-indigo-950 dark:to-zinc-900 overflow-hidden">
+        <div className="flex flex-wrap justify-center gap-4 px-6">
+          {[
+            { name: "3D Design Blender", icon: Palette },
+            { name: "Web Development", icon: Globe },
+            { name: "UI/UX Design", icon: PenTool },
+            { name: "Python Programming", icon: Code },
+            { name: "Data Visualization", icon: BarChart3 },
+            { name: "Javascript", icon: Cpu },
+          ].map((skill, index) => (
+            <span
+              key={index}
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm md:text-base font-semibold rounded-full border border-indigo-200 dark:border-indigo-700 bg-white/70 dark:bg-zinc-800/70 backdrop-blur-md shadow-sm text-zinc-800 dark:text-zinc-200 hover:bg-indigo-50 dark:hover:bg-indigo-900 hover:shadow-[0_0_12px_rgba(139,92,246,0.35)] dark:hover:shadow-[0_0_15px_rgba(139,92,246,0.35)] hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300"
+            >
+              <skill.icon className="w-4 h-4 md:w-5 md:h-5 text-indigo-500 dark:text-indigo-400" />
+              {skill.name}
+            </span>
           ))}
         </div>
 
-        <div className="flex gap-6 animate-marquee whitespace-nowrap absolute top-0 left-full">
-          {["Digital Marketing", "Web Development", "UI/UX Design", "Data Analysis", "Python Programming", "Next.js", "React.js"].map((skill, index) => (
-            <Badge key={index} variant="outline" className="px-6 py-4 text-md font-bold rounded-4xl cursor-pointer hover:scale-110 transition-transform">
-              {skill}
-            </Badge>
-          ))}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-1/4 w-72 h-72 bg-indigo-300/20 blur-3xl rounded-full"></div>
+          <div className="absolute bottom-10 right-1/4 w-64 h-64 bg-violet-400/20 blur-3xl rounded-full"></div>
         </div>
+
+        <div className="absolute bottom-0 left-0 w-full h-24 bg-linear-to-t from-violet-100 dark:from-indigo-950 to-transparent pointer-events-none" />
       </section>
 
+      {/* =========================== POPULAR COURSE ========================== */}
       <section className="px-24 py-16 bg-zinc-50 dark:bg-zinc-900">
         <div className="flex items-center justify-between mb-10">
           <div>
@@ -241,8 +284,15 @@ export default function LandingPage() {
                         </span>
                       </div>
 
-                      <Button variant="default" className="mt-5">
-                        Klaim Sekarang
+                      <Button
+                        className="mt-5 relative inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-lg
+                      bg-linear-to-r from-indigo-500 via-violet-500 to-blue-500 text-white
+                      shadow-[0_0_10px_rgba(99,102,241,0.6)] hover:shadow-[0_0_20px_rgba(99,102,241,0.9)]
+                      hover:from-violet-500 hover:to-indigo-500
+                      transition-all duration-300 ease-out hover:-translate-y-0.5"
+                      >
+                        <span className="relative z-10">Klaim Sekarang</span>
+                        <span className="absolute inset-0 bg-linear-to-r from-indigo-400 via-violet-500 to-blue-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300 rounded-lg"></span>
                       </Button>
                     </CardContent>
                   </Card>
@@ -255,7 +305,6 @@ export default function LandingPage() {
           <CarouselNext className="bg-yellow-500 hover:bg-yellow-500  text-white w-12 h-12 hover:text-white border-white border-3 rounded-full absolute top-1/2 -right-4 -translate-y-1/2 flex items-center justify-center shadow-lg" />
         </Carousel>
       </section>
-
       {/* =========================== ARTICLES ============================= */}
       <section id="articles" className="px-24 pb-24 pt-20 bg-zinc-50 dark:bg-zinc-900">
         <div className="text-center mb-12">
@@ -280,7 +329,6 @@ export default function LandingPage() {
           ))}
         </div>
       </section>
-
       {/* ========================= ACTIVITIES SECTION ========================= */}
       <section id="activities" className="relative px-24 py-20 bg-primary dark:bg-zinc-900 overflow-hidden transition-colors">
         {/* Background grid kotak-kotak halus */}
@@ -379,7 +427,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* ========================= TESTIMONIALS ========================== */}
       <section id="testimonials" className="px-24 py-20 bg-zinc-50 dark:bg-zinc-900">
         <div className="text-center mb-12">
@@ -435,7 +482,6 @@ export default function LandingPage() {
           ))}
         </div>
       </section>
-
       <section id="download-roadmap" className="px-24 pt-4 pb-24 bg-zinc-50">
         <div
           className="mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 px-12 pt-2 rounded-xl relative
@@ -467,7 +513,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
       {/* ============================== FOOTER ============================== */}
       <Footer previousCourses={previousCourses} />
     </div>

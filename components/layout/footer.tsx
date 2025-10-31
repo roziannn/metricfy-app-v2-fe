@@ -1,6 +1,6 @@
 "use client";
 
-import { LocateIcon, LucideInstagram, LucideYoutube, Mails, MessageCircleQuestion, X } from "lucide-react";
+import { FunctionSquare, LocateIcon, LucideInstagram, LucideYoutube, Mails, MessageCircleQuestion, X } from "lucide-react";
 
 export default function Footer({ previousCourses }: { previousCourses: { id: number; title: string }[] }) {
   return (
@@ -8,8 +8,11 @@ export default function Footer({ previousCourses }: { previousCourses: { id: num
       <div className="py-10 grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-24">
         {/* Kiri - Branding */}
         <div className="space-y-4">
-          <h3 className="text-3xl font-bold text-zinc-800 dark:text-white">Metricfy</h3>
-
+          <div className="flex items-center gap-4">
+            <span className="flex items-center font-bold text-xl">
+              <FunctionSquare className="mr-1" size={24} /> Metricfy
+            </span>
+          </div>
           <p className="text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-sm">Platform belajar coding interaktif dengan kursus, artikel, dan event untuk meningkatkan skill digitalmu.</p>
 
           <div className="space-y-2.5">
