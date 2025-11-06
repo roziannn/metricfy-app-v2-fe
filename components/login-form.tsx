@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export function LoginForm({ className, ...props }: React.ComponentProps<"form">) {
   return (
-    <Card className={cn("w-full bg-white/30 backdrop-blur-xl", className)}>
+    <Card className={cn("w-fullbackdrop-blur-xl", className)}>
       <CardHeader className="text-center">
         <CardTitle className="text-xl text-zinc-900 dark:text-white">Login to your account</CardTitle>
         <CardDescription className="text-zinc-600 dark:text-zinc-400">Enter your email and password here</CardDescription>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/logo";
+import { ToggleDarkMode } from "../toggle-darkmode";
 
 export default function Navbar() {
   return (
@@ -32,6 +33,9 @@ export default function Navbar() {
           <Link href="/signup">
             <Button className="bg-linear-to-r from-primary to-indigo-500 text-white hover:from-indigo-600 hover:to-indigo-700 shadow-md">Sign Up</Button>
           </Link>
+          <div className="pl-5">
+            <ToggleDarkMode />
+          </div>
         </div>
       </div>
     </nav>

@@ -5,13 +5,13 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, BarChart, CalendarDays, CircleDashed, ClockFading, FunctionSquare, MapIcon, Quote, Tag, Tent, Code, Palette, Cpu, Globe, BarChart3, PenTool, Newspaper, Speaker, Zap, Sword } from "lucide-react";
-import Footer from "@/components/layout/footer";
+import { ArrowRight, BarChart, CalendarDays, CircleDashed, ClockFading, FunctionSquare, MapIcon, Quote, Tag, Tent, Code, Palette, Cpu, Globe, BarChart3, PenTool, Zap, Sword, CheckCircle2 } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Logo from "@/components/logo";
 import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
 
 export default function LandingPage() {
   /* ----------------------------- Dummy Data ----------------------------- */
@@ -308,13 +308,116 @@ export default function LandingPage() {
         </Carousel>
       </section>
 
+      {/* =========================== SHOWCASE SECTION ========================== */}
+      <section className="relative overflow-hidden px-6 sm:px-16 py-16 bg-linear-to-b from-white via-indigo-50/30 to-zinc-50 dark:from-zinc-900 dark:via-indigo-900/10 dark:to-black">
+        {/* Background pattern halus */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.12),transparent_50%)] pointer-events-none"></div>
+        <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="text-left">
+            <h2 className="text-4xl font-semibold mb-6 dark:text-white">Kenapa Memilih Metricfy?</h2>
+            <p className="text-lg text-zinc-500 dark:text-zinc-400 mb-10 max-w-xl">
+              Kami percaya bahwa belajar bukan sekadar teori, tapi juga pengalaman nyata. Metricfy hadir untuk membangun kemampuan digital yang relevan dengan kebutuhan industri masa kini.
+            </p>
+
+            <div className="space-y-6">
+              {[
+                {
+                  title: "Mentor Berpengalaman",
+                  desc: "Belajar langsung dari praktisi industri dengan pengalaman profesional nyata.",
+                },
+                {
+                  title: "Pembelajaran Berbasis Proyek",
+                  desc: "Bangun portofolio nyata lewat proyek yang mencerminkan kebutuhan dunia kerja.",
+                },
+                {
+                  title: "Akses Materi Fleksibel",
+                  desc: "Nikmati pembelajaran fleksibel dengan materi yang bisa diakses kapan saja.",
+                },
+              ].map((item, index) => (
+                <div key={index} className="flex items-start gap-4 group">
+                  <div className="shrink-0 w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <CheckCircle2 className="text-emerald-500" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold dark:text-white">{item.title}</h4>
+                    <p className="text-zinc-600 dark:text-zinc-400 mt-1 max-w-md">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+              <Button variant="thirdy" size="lg" className="shadow-xl text-white font-bold">
+                Lihat Hasil Karya <ArrowRight />
+              </Button>
+            </div>
+          </div>
+
+          {/* Kanan: Circle stats + tombol */}
+          <div className="flex flex-col items-center justify-center gap-12">
+            <div className="flex flex-wrap justify-center gap-12">
+              {/* Circle 1 */}
+              <div className="relative group w-40 h-40 flex items-center justify-center transition-transform duration-300 hover:scale-105">
+                <svg className="w-full h-full -rotate-90">
+                  <circle cx="80" cy="80" r="70" stroke="#e5e7eb" strokeWidth="10" fill="none" />
+                  <circle cx="80" cy="80" r="70" stroke="#6366f1" strokeWidth="10" fill="none" strokeDasharray="440" strokeDashoffset="100" strokeLinecap="round" className="transition-all duration-500 group-hover:stroke-[url(#grad1)]" />
+                  <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#818cf8" />
+                      <stop offset="100%" stopColor="#4f46e5" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div className="absolute text-center">
+                  <h3 className="text-4xl font-bold dark:text-white">24</h3>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Total Kelas</p>
+                </div>
+              </div>
+
+              {/* Circle 2 */}
+              <div className="relative group w-40 h-40 flex items-center justify-center transition-transform duration-300 hover:scale-105">
+                <svg className="w-full h-full -rotate-90">
+                  <circle cx="80" cy="80" r="70" stroke="#e5e7eb" strokeWidth="10" fill="none" />
+                  <circle cx="80" cy="80" r="70" stroke="#22c55e" strokeWidth="10" fill="none" strokeDasharray="440" strokeDashoffset="130" strokeLinecap="round" className="transition-all duration-500 group-hover:stroke-[url(#grad2)]" />
+                  <defs>
+                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#4ade80" />
+                      <stop offset="100%" stopColor="#16a34a" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div className="absolute text-center">
+                  <h3 className="text-4xl font-bold dark:text-white">12</h3>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Event</p>
+                </div>
+              </div>
+
+              {/* Circle 3 */}
+              <div className="relative group w-40 h-40 flex items-center justify-center transition-transform duration-300 hover:scale-105">
+                <svg className="w-full h-full -rotate-90">
+                  <circle cx="80" cy="80" r="70" stroke="#e5e7eb" strokeWidth="10" fill="none" />
+                  <circle cx="80" cy="80" r="70" stroke="#f59e0b" strokeWidth="10" fill="none" strokeDasharray="440" strokeDashoffset="160" strokeLinecap="round" className="transition-all duration-500 group-hover:stroke-[url(#grad3)]" />
+                  <defs>
+                    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#fbbf24" />
+                      <stop offset="100%" stopColor="#d97706" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div className="absolute text-center">
+                  <h3 className="text-4xl font-bold dark:text-white">8</h3>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Bootcamp</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* =========================== CHALLENGE SECTION ========================== */}
       <section
         id="challenge"
         className="relative px-24 py-24 overflow-hidden 
        bg-zinc-50 
        [background-image:radial-gradient(rgba(99,102,241,0.15)_1.2px,transparent_1.8px)] 
-       [background-size:22px_22px]"
+       [background-size:22px_22px] dark:bg-zinc-900"
       >
         {/* Blur circles background */}
         <div className="absolute top-0 left-1/4 w-72 h-72 bg-indigo-300/20 blur-3xl rounded-full pointer-events-none"></div>
@@ -323,7 +426,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
           {/* LEFT SIDE: TEXT & BUTTON */}
           <div className="space-y-6">
-            <h2 className="text-4xl font-semibold mb-4 flex items-center gap-2 text-zinc-800">
+            <h2 className="text-4xl font-semibold mb-4 flex items-center gap-2">
               Weekly Coding
               <span
                 className="px-5 py-1 text-3xl font-semibold text-white 
@@ -334,7 +437,7 @@ export default function LandingPage() {
               </span>
             </h2>
 
-            <p className="text-lg text-zinc-600 max-w-lg">Uji kemampuan coding-mu setiap minggu dengan tantangan seru untuk menambah skill, pengalaman, dan portofolio.</p>
+            <p className="ttext-lg text-zinc-500 dark:text-zinc-400 max-w-lg">Uji kemampuan coding-mu setiap minggu dengan tantangan seru untuk menambah skill, pengalaman, dan portofolio.</p>
 
             <Button
               size="lg"
@@ -410,7 +513,7 @@ export default function LandingPage() {
         {/* Button Lihat Selengkapnya */}
         <div className="flex justify-center mt-6">
           <Button variant="outline" size="lg">
-            Lihat Selengkapnya
+            Lihat Selengkapnya <ArrowRight />
           </Button>
         </div>
       </section>
@@ -568,7 +671,7 @@ export default function LandingPage() {
           ))}
         </div>
       </section>
-      <section id="download-roadmap" className="px-24 pt-4 pb-24 bg-zinc-50">
+      <section id="download-roadmap" className="px-24 pt-4 pb-24 bg-zinc-50 dark:bg-zinc-900">
         <div
           className="mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 px-12 pt-2 rounded-xl relative
                bg-linear-to-l from-yellow-500/50 via-amber-400/80 to-yellow-300

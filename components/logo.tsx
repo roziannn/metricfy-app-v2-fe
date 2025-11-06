@@ -18,7 +18,7 @@ export default function Logo({ variant = "md", className = "" }: LogoProps) {
   return (
     <div className={`flex items-center font-bold ${sizes.text} ${sizes.gap} ${className}`}>
       <FunctionSquare size={sizes.icon} strokeWidth={2.5} className="text-primary drop-shadow-sm" />
-      <span className="bg-linear-to-r text-zinc-700 bg-clip-text tracking-tight">Metricfy</span>
+      <span className="bg-linear-to-r text-zinc-700 dark:text-zinc-300 bg-clip-text tracking-tight">Metricfy</span>
     </div>
   );
 }
