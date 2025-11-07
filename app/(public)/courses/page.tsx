@@ -13,39 +13,42 @@ const baseCourses = [
   {
     id: 1,
     title: "Belajar Dasar Pemrograman",
+    slug: "belajar-dasar-pemrograman",
     description: "Pelajari logika dasar coding dengan cara menyenangkan untuk pemula.",
     imageUrl: "/img/courses/courses-1.png",
     level: "Beginner",
     category: "Pemrograman",
     rating: 4.8,
-    link: "/courses/belajar-dasar",
   },
   {
     id: 2,
     title: "Pemrograman Web Interaktif",
+    slug: "pemrograman-web-interaktif",
     description: "Bangun situs web dinamis menggunakan HTML, CSS, dan JavaScript.",
     imageUrl: "/img/courses/courses-2.png",
     level: "Intermediate",
     category: "Web Development",
     rating: 4.9,
-    link: "/courses/web-interaktif",
   },
   {
     id: 3,
     title: "Algoritma dan Logika Lanjutan",
+    slug: "algoritma-dan-logika-lanjutan",
     description: "Kuasai logika dan algoritma untuk memecahkan masalah kompleks.",
     imageUrl: "/img/courses/courses-3.png",
     level: "Advanced",
     category: "Computer Science",
     rating: 5.0,
-    link: "/courses/algoritma-lanjutan",
   },
 ];
 
-const allCourses = Array.from({ length: 12 }, (_, i) => ({
-  ...baseCourses[i % baseCourses.length],
-  id: i + 1,
-}));
+const allCourses = Array.from({ length: 12 }, (_, i) => {
+  const course = baseCourses[i % baseCourses.length];
+  return {
+    ...course,
+    id: i + 1,
+  };
+});
 
 const allCategories = ["Pemrograman", "Web Development", "Computer Science"];
 const allLevels = ["Beginner", "Intermediate", "Advanced"];
@@ -79,9 +82,7 @@ export default function CoursesPage() {
 
   return (
     <section className="min-h-screen bg-zinc-100 dark:bg-zinc-900 transition-colors duration-300">
-      {/* 🧭 Header */}
       <div className="relative w-full bg-linear-to-r from-indigo-400 via-violet-500 to-blue-500 py-16 px-6 sm:px-16 text-center text-white shadow-xl overflow-hidden">
-        {/* Grid pattern */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -114,7 +115,7 @@ export default function CoursesPage() {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-10 px-6 sm:px-16 py-14">
-        {/* Sidebar Filter */}
+        {/* sticky aside filter */}
         <aside
           className="lg:w-1/4 bg-white dark:bg-zinc-800 rounded-2xl shadow-md border border-zinc-100 dark:border-zinc-700 
           p-6 h-fit sticky top-24 self-start"
@@ -151,14 +152,13 @@ export default function CoursesPage() {
           </div>
         </aside>
 
-        {/* Course List */}
+        {/* course list */}
         <div className="flex-1">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-medium text-zinc-800 dark:text-zinc-100">
               Menampilkan {paginatedCourses.length} dari {filteredCourses.length} kursus
             </h2>
 
-            {/* 🔘 Pagination Buttons */}
             <div className="flex items-center gap-3">
               <Button variant="outline" size="icon" disabled={page === 1} onClick={() => setPage((p) => Math.max(1, p - 1))} className="rounded-full w-10 h-10 border-zinc-300 dark:border-zinc-700 hover:bg-indigo-100 dark:hover:bg-zinc-700">
                 <ChevronLeft className="w-5 h-5" />
@@ -200,10 +200,10 @@ export default function CoursesPage() {
                       </span>
                     </div>
 
-                    <Link href={course.link}>
+                    <Link href={`/courses/${course.slug}`}>
                       <Button
                         className="mt-5 relative inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-lg
-                        bg-gradient-to-r from-indigo-500 via-violet-500 to-blue-500 text-white
+                        bg-linear-to-r from-indigo-500 via-violet-500 to-blue-500 text-white
                         shadow-[0_0_10px_rgba(99,102,241,0.6)] hover:shadow-[0_0_20px_rgba(99,102,241,0.9)]
                         hover:from-violet-500 hover:to-indigo-500
                         transition-all duration-300 ease-out hover:-translate-y-0.5"
