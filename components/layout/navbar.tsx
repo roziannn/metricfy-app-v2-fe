@@ -20,7 +20,7 @@ export default function Navbar() {
       </div>
 
       <div className="hidden md:flex items-center gap-10 text-[15px] font-medium">
-        {["Courses", "Articles", "Showcase", "Event", "Contact"].map((link) => (
+        {["Courses", "Articles", "Showcases", "Activity", "Contact"].map((link) => (
           <Link key={link} href={`/${link.toLowerCase()}`} className="text-zinc-700 dark:text-zinc-200 hover:text-primary transition-colors duration-200">
             {link}
           </Link>
