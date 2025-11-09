@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, Share2, User, UserCircle } from "lucide-react";
+import { Calendar, Share2, Tag, User, UserCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Card, CardContent } from "@/components/ui/card";
@@ -109,7 +109,10 @@ export function ArticleDetail({ article }: { article: Article }) {
         {/* Thumbnail + Category */}
         <div className="relative w-full h-72 sm:h-[420px] overflow-hidden mb-8 rounded-lg">
           <Image src={article.imageUrl} alt={article.title} fill priority={false} loading="lazy" className="object-cover" />
-          <div className="absolute top-3 right-0 bg-indigo-600/80 text-white text-xs font-semibold uppercase px-3 py-2">{article.category}</div>
+          <div className="absolute top-3 right-0 bg-indigo-600/80 text-white text-xs font-semibold uppercase px-3 py-2 flex items-center gap-1">
+            <Tag className="h-3.5 w-3.5" />
+            {article.category}
+          </div>
         </div>
 
         {/* Content */}

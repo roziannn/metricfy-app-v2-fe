@@ -41,7 +41,8 @@ export function ShowcaseDetail({ showcase }: { showcase: Showcase }) {
           <div className="relative w-full h-72 sm:h-[420px] overflow-hidden mb-6 rounded-lg">
             <Image src={showcase.imageUrl} alt={showcase.title} fill className="object-cover" />
             <div className="absolute top-3 right-0 bg-indigo-600/80 text-white text-xs font-semibold uppercase px-3 py-2 flex items-center gap-1">
-              <Tag className="w-3 h-3" /> {showcase.category}
+              <Tag className="h-3.5 w-3.5" />
+              {showcase.category}
             </div>
           </div>
 
@@ -50,8 +51,8 @@ export function ShowcaseDetail({ showcase }: { showcase: Showcase }) {
         </div>
 
         {/* aside */}
-        <aside className="lg:col-span-1 flex flex-col gap-6 mt-4 lg:mt-12">
-          <Card className="flex flex-col gap-6 p-6 shadow-none border-zinc-200">
+        <aside className="lg:col-span-1 flex flex-col gap-6 mt-4 lg:mt-16">
+          <Card className="flex flex-col gap-6 p-6 shadow-none">
             {/* uploader */}
             <div className="flex flex-col items-center text-center gap-3">
               <Image src={showcase.uploader.avatar} alt={showcase.uploader.name} width={80} height={80} className="rounded-full object-cover" />
@@ -59,7 +60,6 @@ export function ShowcaseDetail({ showcase }: { showcase: Showcase }) {
               <p className="text-sm text-zinc-500 dark:text-zinc-400">Uploader</p>
             </div>
 
-            {/* live preview */}
             {showcase.livePreviewUrl && (
               <Link href={showcase.livePreviewUrl} target="_blank" rel="noopener noreferrer">
                 <Button className="w-full h-12 bg-indigo-500 hover:bg-indigo-700 font-semibold">
@@ -68,7 +68,6 @@ export function ShowcaseDetail({ showcase }: { showcase: Showcase }) {
               </Link>
             )}
 
-            {/* link box */}
             {showcase.livePreviewUrl && (
               <div className="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-4 flex items-center justify-between gap-2">
                 <span className="text-sm text-zinc-700 dark:text-zinc-200 truncate">{showcase.livePreviewUrl}</span>
@@ -85,7 +84,6 @@ export function ShowcaseDetail({ showcase }: { showcase: Showcase }) {
               </div>
             )}
 
-            {/* tools */}
             {showcase.tools && showcase.tools.length > 0 && (
               <div className="pt-4 border-t border-zinc-200 dark:border-zinc-700">
                 <h4 className="text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-2">Tools / Technologies</h4>
