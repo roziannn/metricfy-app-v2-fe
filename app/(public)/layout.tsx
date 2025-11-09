@@ -1,4 +1,5 @@
 // app/(public)/layout.tsx
+import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
@@ -6,7 +7,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
     <>
       <Navbar />
       <main>{children}</main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

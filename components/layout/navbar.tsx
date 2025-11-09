@@ -14,14 +14,16 @@ export default function Navbar() {
                  border-b border-white/10 transition-all duration-300"
     >
       <div className="flex items-center gap-4">
-        <Logo variant="md" />
+        <Link href="/">
+          <Logo variant="md" />
+        </Link>
       </div>
 
       <div className="hidden md:flex items-center gap-10 text-[15px] font-medium">
         {["Courses", "Articles", "Showcase", "Event", "Contact"].map((link) => (
-          <a key={link} href={`#${link.toLowerCase()}`} className="text-zinc-700 dark:text-zinc-200 hover:text-primary transition-colors duration-200">
+          <Link key={link} href={`/${link.toLowerCase()}`} className="text-zinc-700 dark:text-zinc-200 hover:text-primary transition-colors duration-200">
             {link}
-          </a>
+          </Link>
         ))}
 
         <div className="flex flex-row items-center gap-4">

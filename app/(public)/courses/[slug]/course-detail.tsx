@@ -21,6 +21,33 @@ type Course = {
   lessons: string[];
 };
 
+// const recommendedCourses = [
+//   {
+//     title: "Belajar React Dasar",
+//     thumbnail: "/img/courses/courses-1.png",
+//     shortDescription: "Pelajari dasar-dasar React untuk membangun UI interaktif.",
+//     slug: "react-dasar",
+//   },
+//   {
+//     title: "Kuasai Tailwind CSS",
+//     thumbnail: "/img/courses/courses-2.png",
+//     shortDescription: "Bangun tampilan modern dan responsif dengan Tailwind CSS.",
+//     slug: "tailwind-css",
+//   },
+//   {
+//     title: "Node.js untuk Pemula",
+//     thumbnail: "/img/courses/courses-3.png",
+//     shortDescription: "Belajar membuat backend dengan Node.js dan Express.",
+//     slug: "nodejs-pemula",
+//   },
+//   {
+//     title: "Node.js untuk Pemula",
+//     thumbnail: "/img/courses/courses-3.png",
+//     shortDescription: "Belajar membuat backend dengan Node.js dan Express.",
+//     slug: "nodejs-pemula",
+//   },
+// ];
+
 export function CourseDetail({ course }: { course: Course }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const firstFiveLessons = course.lessons.slice(0, 5);
@@ -37,7 +64,7 @@ export function CourseDetail({ course }: { course: Course }) {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="bg-zinc-50 dark:bg-zinc-900 py-16 px-8 sm:px-16 lg:px-24">
+      <section className="bg-zinc-100 dark:bg-zinc-900 py-16 px-8 sm:px-16 lg:px-24">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 items-start">
           {/* IMAGE */}
           <div className="relative w-full lg:w-1/2 h-72 lg:h-[350px] rounded-2xl overflow-hidden shadow-lg">
@@ -90,18 +117,18 @@ export function CourseDetail({ course }: { course: Course }) {
       </section>
 
       {/* CONTENT SECTION */}
-      <section className="pb-16 px-8 sm:px-16 lg:px-24 bg-zinc-50 dark:bg-zinc-900">
+      <section className="pb-16 px-8 sm:px-16 lg:px-24 bg-zinc-100 dark:bg-zinc-900">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* LEFT CONTENT */}
-          <article className="lg:col-span-2 space-y-6">
+          <article className="lg:col-span-2 space-y-8">
             <div>
-              <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-100 mb-4">Deskripsi Kursus</h2>
+              <h3 className="text-xl font-semibold mb-3 border-b border-zinc-200 dark:border-zinc-700 pb-2">Deskripsi Kursus</h3>
               <div className="prose prose-zinc dark:prose-invert max-w-none leading-relaxed" dangerouslySetInnerHTML={{ __html: course.content }} />
             </div>
 
             {/* TOOLS */}
             <div>
-              <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-3">Tools Pendukung</h3>
+              <h3 className="text-xl font-semibold mb-3 border-b border-zinc-200 dark:border-zinc-700 pb-2">Tools Pendukung</h3>
               <p className="pb-4">Lengkapi semua pendukung di bawah sebelum belajar</p>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -109,11 +136,11 @@ export function CourseDetail({ course }: { course: Course }) {
                   <div
                     key={index}
                     className="flex items-center gap-3 p-4
-                   bg-zinc-100 dark:bg-zinc-600/40
-                   rounded-lg text-sm font-medium text-zinc-900 dark:text-zinc-100
-                   transition-all duration-200
-                   hover:bg-indigo-100 dark:hover:bg-indigo-800/30
-                   hover:border-indigo-400/60"
+             bg-zinc-50 dark:bg-zinc-600/40
+             rounded-lg text-sm font-medium text-zinc-900 dark:text-zinc-100
+             transition-all duration-200
+             hover:bg-indigo-100 dark:hover:bg-indigo-800/30
+             hover:border-indigo-400/60"
                   >
                     <div className="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-50 dark:bg-indigo-800/50 shrink-0">{tool.icon}</div>
                     <span className="text-left">{tool.name}</span>
@@ -124,26 +151,55 @@ export function CourseDetail({ course }: { course: Course }) {
           </article>
 
           {/* LESSONS SIDEBAR */}
-          <aside className="lg:col-span-1 relative p-6 bg-zinc-100 dark:bg-zinc-800/60 rounded-xl h-fit">
+          <aside className="lg:col-span-1 relative p-6 bg-zinc-100 dark:bg-zinc-800/60 rounded-xl h-fit overflow-hidden">
             <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-4">Daftar Lesson</h3>
-            <ul className="space-y-3 text-sm max-h-[300px] overflow-hidden">
-              {firstFiveLessons.map((lesson, i) => (
-                <li key={i} className="p-3 bg-white dark:bg-zinc-700/60 rounded-lg flex items-center justify-between cursor-not-allowed">
-                  <span>
-                    <strong>{i + 1}.</strong> {lesson}
-                  </span>
-                  <Button size="sm" variant="outline" disabled>
-                    <Lock className="w-4 h-4 text-zinc-500" />
-                  </Button>
-                </li>
-              ))}
-            </ul>
-            <Button variant="outline" onClick={() => setIsModalOpen(true)} className="mt-4 w-full">
+
+            {/* Lesson List */}
+            <div className="relative">
+              <ul className="space-y-3 text-sm max-h-[300px] overflow-hidden relative">
+                {firstFiveLessons.map((lesson, i) => (
+                  <li key={i} className="p-3 bg-white dark:bg-zinc-700/60 rounded-lg flex items-center justify-between cursor-not-allowed">
+                    <span>
+                      <strong>{i + 1}.</strong> {lesson}
+                    </span>
+                    <Button size="sm" variant="outline" disabled>
+                      <Lock className="w-4 h-4 text-zinc-500" />
+                    </Button>
+                  </li>
+                ))}
+              </ul>
+              <div
+                className="absolute bottom-0 left-0 right-0 h-16 
+                    bg-linear-to-t from-zinc-100 dark:from-zinc-800/60 
+                    to-transparent pointer-events-none rounded-b-xl"
+              />
+            </div>
+
+            {/* Button */}
+            <Button variant="outline" onClick={() => setIsModalOpen(true)} className="mt-4 w-full relative z-10">
               Lihat Semua Lesson
             </Button>
           </aside>
         </div>
       </section>
+
+      {/* <section className="max-w-6xl mx-auto mt-6 mb-16">
+        <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100 mb-6 border-b border-zinc-200 dark:border-zinc-700 pb-2">Rekomendasi Kelas Lainnya</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {recommendedCourses.map((rec, index) => (
+            <div key={index} className="group bg-zinc-100 dark:bg-zinc-800/60 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300">
+              <Image src={rec.thumbnail} alt={rec.title} width={300} height={300} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div className="p-5 space-y-3">
+                <h4 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-500 transition-colors">{rec.title}</h4>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2">{rec.shortDescription}</p>
+                <Button variant="default" className="mt-2 w-full bg-indigo-600 hover:bg-indigo-700 text-white" onClick={() => navigate(`/course/${rec.slug}`)}>
+                  Lihat Kelas
+                </Button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section> */}
 
       {/* MODAL */}
       {isModalOpen && (
@@ -155,7 +211,7 @@ export function CourseDetail({ course }: { course: Course }) {
             <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 mb-4">Semua Lesson</h3>
             <ul className="space-y-3 text-sm max-h-96 overflow-y-auto">
               {course.lessons.map((lesson, i) => (
-                <li key={i} className="px-2 py-4 bg-zinc-100 dark:bg-zinc-800/50 rounded flex items-center justify-between">
+                <li key={i} className="px-2 py-4.5 bg-zinc-100 dark:bg-zinc-800/50 rounded flex items-center justify-between">
                   <span>
                     <strong>{i + 1}.</strong> {lesson}
                   </span>

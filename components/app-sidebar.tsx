@@ -1,11 +1,11 @@
 "use client";
 
 import * as React from "react";
-import { BookOpen, Database, Dumbbell, Frame, FunctionSquare, LayoutDashboard, LifeBuoy, Map, PieChart, ProjectorIcon, Rocket, Send, Settings2, SquareTerminal } from "lucide-react";
+import { BookOpen, Database, Dumbbell, FunctionSquare, LayoutDashboard, ProjectorIcon, Settings2, SquareTerminal } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
-import { NavSecondary } from "@/components/nav-secondary";
+// import { NavProjects } from "@/components/nav-projects";
+// import { NavSecondary } from "@/components/nav-secondary";
 import { NavUser } from "@/components/nav-user";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
 
