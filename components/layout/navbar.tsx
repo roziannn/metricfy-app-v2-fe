@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/logo";
 import { ToggleDarkMode } from "../toggle-darkmode";
-import { Award, CalendarRange, ChevronDown, ChevronUp, Tent } from "lucide-react";
+import { Award, CalendarRange, ChevronDown, ChevronUp, MessageCircleMore, Tent } from "lucide-react";
 
 export default function Navbar() {
   const [isActivityOpen, setIsActivityOpen] = useState(false);
@@ -40,12 +40,12 @@ export default function Navbar() {
 
           {isActivityOpen && (
             <div className="absolute top-full left-0 mt-3.5 w-60 bg-white dark:bg-zinc-800 rounded-lg shadow-xl border border-zinc-200 dark:border-zinc-700 py-3 z-50">
-              <Link href="/activity/recent" className="block px-4 py-3 mx-2 rounded-lg dark:text-indigo-200 hover:bg-indigo-100 dark:hover:bg-zinc-700" onClick={() => setIsActivityOpen(false)}>
+              <Link href="/activity/events" className="block px-4 py-3 mx-2 rounded-lg dark:text-indigo-200 hover:bg-indigo-100 dark:hover:bg-zinc-700" onClick={() => setIsActivityOpen(false)}>
                 <div className="flex items-center gap-3">
                   <div className="flex items-center justify-center w-7 h-7 rounded-md bg-indigo-50 dark:bg-indigo-700">
                     <CalendarRange className="w-4 h-4 text-indigo-700 dark:text-indigo-100" />
                   </div>
-                  <span>Event</span>
+                  <span>Events</span>
                 </div>
               </Link>
 
@@ -64,6 +64,14 @@ export default function Navbar() {
                     <Award className="w-4 h-4 text-indigo-700 dark:text-indigo-100" />
                   </div>
                   <span>Challenge</span>
+                </div>
+              </Link>
+              <Link href="/activity/challenge" className="block px-4 py-3 mx-2 rounded-lg dark:text-indigo-200 hover:bg-indigo-100 dark:hover:bg-zinc-700" onClick={() => setIsActivityOpen(false)}>
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-center w-7 h-7 rounded-md bg-indigo-50 dark:bg-indigo-700">
+                    <MessageCircleMore className="w-4 h-4 text-indigo-700 dark:text-indigo-100" />
+                  </div>
+                  <span>Forum</span>
                 </div>
               </Link>
             </div>
