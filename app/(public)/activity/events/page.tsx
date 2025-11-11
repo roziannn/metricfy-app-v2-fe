@@ -110,14 +110,12 @@ export default function EventPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {filteredItems.length > 0 ? (
               filteredItems.map((item) => (
-                <Link key={item.id} href={`/activity/event/${item.slug}`} className="hover:opacity-90 transition-opacity">
+                <Link key={item.id} href={`/activity/events/${item.slug}`} className="hover:opacity-90 transition-opacity">
                   <Card className="overflow-hidden transition-transform hover:-translate-y-2 my-0 py-0 flex flex-col bg-white dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-700">
-                    {/* Gambar */}
                     <div className="relative w-full h-72 sm:h-[280px] overflow-hidden">
                       <Image src={item.imageUrl || "/img/default.png"} alt={item.title} fill className="object-cover" />
                     </div>
 
-                    {/* Konten */}
                     <CardContent className="flex flex-col flex-1 p-4 pt-0">
                       <span className="w-fit flex items-center gap-1 bg-indigo-50 text-indigo-700 border border-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:border-indigo-800 text-sm font-semibold px-3 py-1.5 mb-4 rounded-2xl">
                         <Clock className="w-4 h-4" /> {getRemainingTime(item.date)}
@@ -146,7 +144,6 @@ export default function EventPage() {
                       <p className="text-sm text-zinc-600 dark:text-zinc-400  line-clamp-2 leading-relaxed">{item.description}</p>
                     </CardContent>
 
-                    {/* Footer */}
                     <CardFooter className="font-semibold text-indigo-700 dark:text-indigo-300 bg-zinc-100 dark:bg-zinc-700 py-4 pl-2 lg:pl-6">GRATIS!</CardFooter>
                   </Card>
                 </Link>
