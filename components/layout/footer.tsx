@@ -12,19 +12,19 @@ import Logo from "../logo";
 //           <div className="flex items-center gap-4">
 //             <Logo variant="md" />
 //           </div>
-//           <p className="text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-sm">Platform belajar coding interaktif dengan kursus, artikel, dan event untuk meningkatkan skill digitalmu.</p>
+//           <p className="text-lg  leading-relaxed max-w-sm">Platform belajar coding interaktif dengan kursus, artikel, dan event untuk meningkatkan skill digitalmu.</p>
 
 //           <div className="space-y-2.5">
-//             <div className="flex items-center gap-2.5 text-zinc-500 dark:text-zinc-400">
+//             <div className="flex items-center gap-2.5 ">
 //               <LocateIcon size={20} />
 //               <span>Bandung, Indonesia</span>
 //             </div>
 
-//             <div className="flex items-center gap-2.5 text-zinc-500 dark:text-zinc-400">
+//             <div className="flex items-center gap-2.5 ">
 //               <Mails size={20} />
 //               <span>info@metricfy.id</span>
 //             </div>
-//             <div className="flex items-center gap-2.5 text-zinc-500 dark:text-zinc-400">
+//             <div className="flex items-center gap-2.5 ">
 //               <MessageCircleQuestion size={18} />
 //               <span>+62812 0012 1111</span>
 //             </div>
@@ -36,7 +36,7 @@ import Logo from "../logo";
 //           {/* Library */}
 //           <div className="space-y-3">
 //             <h4 className="font-semibold text-lg">Library</h4>
-//             <ul className="space-y-3 text-zinc-500 dark:text-zinc-400">
+//             <ul className="space-y-3 ">
 //               <li>
 //                 <a href="#activities">Introduction</a>
 //               </li>
@@ -55,7 +55,7 @@ import Logo from "../logo";
 //           {/* Fitur */}
 //           <div className="space-y-3">
 //             <h4 className="font-semibold text-lg">Fitur</h4>
-//             <ul className="space-y-3 text-zinc-500 dark:text-zinc-400">
+//             <ul className="space-y-3 ">
 //               <li>
 //                 <a href="#courses">Courses</a>
 //               </li>
@@ -80,7 +80,7 @@ import Logo from "../logo";
 //           {/* Aktivitas */}
 //           <div className="space-y-3">
 //             <h4 className="font-semibold text-lg">Aktivitas Lain</h4>
-//             <ul className="space-y-3 text-zinc-500 dark:text-zinc-400">
+//             <ul className="space-y-3 ">
 //               <li>
 //                 <a href="#courses">Webinar</a>
 //               </li>
@@ -102,7 +102,7 @@ import Logo from "../logo";
 //       </div>
 
 //       {/* Bottom Bar */}
-//       <div className="border-t border-zinc-200 dark:border-zinc-700 py-10 flex flex-col sm:flex-row justify-between items-center text-zinc-500 dark:text-zinc-400 text-sm gap-4">
+//       <div className="border-t border-zinc-200 dark:border-zinc-700 py-10 flex flex-col sm:flex-row justify-between items-center  text-sm gap-4">
 //         <span>&copy; 2024 - 2025 METRICFY LEARNING EDUCATION. All rights reserved.</span>
 
 //         <div className="flex items-center gap-5">
@@ -130,19 +130,19 @@ export default function Footer() {
           <div className="flex items-center gap-4">
             <Logo variant="md" />
           </div>
-          <p className="text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-sm">Platform belajar coding interaktif dengan kursus, artikel, dan event untuk meningkatkan skill digitalmu.</p>
+          <p className="text-mdleading-relaxed max-w-sm">Platform belajar coding interaktif dengan kursus, artikel, dan event untuk meningkatkan skill digitalmu.</p>
 
           <div className="space-y-2.5">
-            <div className="flex items-center gap-2.5 text-zinc-500 dark:text-zinc-400">
+            <div className="flex items-center gap-2.5 ">
               <LocateIcon size={20} />
               <span>Bandung, Indonesia</span>
             </div>
 
-            <div className="flex items-center gap-2.5 text-zinc-500 dark:text-zinc-400">
+            <div className="flex items-center gap-2.5 ">
               <Mails size={20} />
               <span>info@metricfy.id</span>
             </div>
-            <div className="flex items-center gap-2.5 text-zinc-500 dark:text-zinc-400">
+            <div className="flex items-center gap-2.5 ">
               <MessageCircleQuestion size={18} />
               <span>+62812 0012 1111</span>
             </div>
@@ -152,9 +152,9 @@ export default function Footer() {
         {/* Kanan - Fitur, Kelas, Aktivitas */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Library */}
-          <div className="space-y-3">
+          <div className="space-y-4">
             <h4 className="font-semibold text-lg">Library</h4>
-            <ul className="space-y-3 text-zinc-500 dark:text-zinc-400">
+            <ul className="space-y-2 ">
               <li>
                 <a href="#activities">Introduction</a>
               </li>
@@ -171,9 +171,9 @@ export default function Footer() {
           </div>
 
           {/* Fitur */}
-          <div className="space-y-3">
+          <div className="space-y-4">
             <h4 className="font-semibold text-lg">Fitur</h4>
-            <ul className="space-y-3 text-zinc-500 dark:text-zinc-400">
+            <ul className="space-y-2 ">
               <li>
                 <a href="#courses">Courses</a>
               </li>
@@ -196,9 +196,9 @@ export default function Footer() {
           </div>
 
           {/* Aktivitas */}
-          <div className="space-y-3">
+          <div className="space-y-4">
             <h4 className="font-semibold text-lg">Aktivitas Lain</h4>
-            <ul className="space-y-3 text-zinc-500 dark:text-zinc-400">
+            <ul className="space-y-2 ">
               <li>
                 <a href="#courses">Webinar</a>
               </li>
@@ -220,7 +220,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-zinc-200 dark:border-zinc-700 py-10 flex flex-col sm:flex-row justify-between items-center text-zinc-500 dark:text-zinc-400 text-sm gap-4">
+      <div className="border-t border-zinc-200 dark:border-zinc-700 py-10 flex flex-col sm:flex-row justify-between items-center  text-sm gap-4">
         <span>&copy; 2024 - 2025 METRICFY LEARNING EDUCATION. All rights reserved.</span>
 
         <div className="flex items-center gap-5">
