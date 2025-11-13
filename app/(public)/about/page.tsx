@@ -6,6 +6,7 @@ import { Lightbulb, HeartHandshake, BookOpenCheck, Award, TrendingUp, Handshake,
 import Link from "next/link";
 
 import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Bar, BarChart } from "recharts";
+import Logo from "@/components/logo";
 
 const visitorData = [
   { month: "Jan", visitors: 120 },
@@ -48,11 +49,9 @@ export default function AboutPage() {
             </div>
             <div className="ml-6 relative">
               <span className="absolute -left-8 top-1.5 flex items-center justify-center w-4 h-4 rounded-full bg-zinc-400 dark:bg-zinc-600 ring-4 ring-zinc-200 dark:ring-zinc-800"></span>
-
               <div className="mb-3 flex justify-center">
                 <Image src="/img/metricfy-v1.jpg" alt="Metricfy V1" width={350} height={350} className="rounded-4xl shadow-md object-cover" />
               </div>
-
               <div className="p-5">
                 <h4 className="text-3xl font-medium mb-1">2024</h4>
                 <p className="text-md leading-relaxed">
@@ -116,9 +115,9 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Visitor Chart */}
-      <div className="max-w-5xl mx-auto px-6 sm:px-16 py-20 mb-20">
-        <h2 className="text-xl sm:text-2xl font-bold mb-6 text-zinc-900 dark:text-white text-center">Seberapa banyak Metricfy sudah diakses oleh para pelajar di Indonesia?</h2>
+      {/* visitor Chart */}
+      <div className="max-w-5xl mx-auto px-6 sm:px-16 py-20">
+        <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center">Seberapa banyak Metricfy sudah diakses oleh para pelajar di Indonesia?</h2>
         <ResponsiveContainer width="100%" height={350}>
           <BarChart data={visitorData} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
@@ -128,28 +127,6 @@ export default function AboutPage() {
             <Bar dataKey="visitors" fill="#6366F1" radius={[8, 8, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
-      </div>
-
-      <div className="relative bg-primary text-white pt-12 pb-0 overflow-hidden">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-6 md:items-end relative z-10">
-          {/* Gambar */}
-          <div className="relative flex justify-center md:justify-start w-full md:w-1/3">
-            <Image src="/img/about-tagline.png" alt="About Image" width={300} height={100} className="object-contain w-full h-auto md:h-80 md:absolute md:bottom-0" />
-          </div>
-
-          {/* Teks */}
-          <div className="text-center md:text-left md:w-1/2 pb-10 md:pb-8">
-            <h2 className="text-4xl sm:text-3xl font-bold mb-4 leading-snug">
-              Wujudkan potensi terbaikmu dan jadilah <span className="text-yellow-300">talenta digital</span> yang siap masa depan!
-            </h2>
-            <p className="text-md sm:text-md mb-4 max-w-3xl mx-auto md:mx-0">
-              Belajar di Metricfy berarti bukan cuma memahami teknologi, tapi juga mengasah kreativitas, logika, dan kemampuan berpikir kritis melalui pengalaman belajar yang seru dan relevan dengan dunia nyata.
-            </p>
-            <Link href="/courses" className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-6 py-3 mb-6 rounded-xl hover:bg-indigo-50 transition">
-              <BookOpen className="w-5 h-5" /> Mulai Belajar Sekarang
-            </Link>
-          </div>
-        </div>
       </div>
 
       {/* testimonials */}
@@ -197,7 +174,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <p className="text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed line-clamp-3">{t.feedback}</p>
-                  <button className="text-sm font-medium hover:underline mt-2">Lihat Selengkapnya</button>
+                  <button className="text-sm font-medium hover:underline mt-2">See More</button>
                 </CardContent>
               </Card>
             ))}
@@ -206,6 +183,26 @@ export default function AboutPage() {
           <div className="flex justify-end mt-8">
             <Link href="#" className="flex items-center text-zinc-700 dark:text-zinc-100 font-medium">
               <span className="pr-2">Lihat semua testimonial</span> <ArrowRight />
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative bg-primary text-white pt-12 pb-0 overflow-hidden">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-6 md:items-end relative z-10">
+          <div className="relative flex justify-center md:justify-start w-full md:w-1/3">
+            <Image src="/img/about-tagline.png" alt="About Image" width={300} height={100} className="object-contain w-full h-auto md:h-80 md:absolute md:bottom-0" />
+          </div>
+
+          <div className="text-center md:text-left md:w-1/2 pb-10 md:pb-8">
+            <h2 className="text-4xl sm:text-3xl font-bold mb-4 leading-snug">
+              Wujudkan potensi terbaikmu dan jadilah <span className="text-yellow-300">talenta digital</span> yang siap masa depan!
+            </h2>
+            <p className="text-md sm:text-md mb-4 max-w-3xl mx-auto md:mx-0">
+              Belajar di Metricfy berarti bukan cuma memahami teknologi, tapi juga mengasah kreativitas, logika, dan kemampuan berpikir kritis melalui pengalaman belajar yang seru dan relevan dengan dunia nyata.
+            </p>
+            <Link href="/courses" className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-6 py-3 mb-6 rounded-xl hover:bg-indigo-50 transition">
+              <BookOpen className="w-5 h-5" /> Mulai Belajar Sekarang
             </Link>
           </div>
         </div>

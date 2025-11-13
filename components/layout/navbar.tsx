@@ -58,15 +58,15 @@ export default function Navbar() {
                 </div>
               </Link>
 
-              <Link href="/activity/challenge" className="block px-4 py-3 mx-2 rounded-lg dark:text-indigo-200 hover:bg-indigo-100 dark:hover:bg-zinc-700" onClick={() => setIsActivityOpen(false)}>
+              <Link href="/activity/challenges" className="block px-4 py-3 mx-2 rounded-lg dark:text-indigo-200 hover:bg-indigo-100 dark:hover:bg-zinc-700" onClick={() => setIsActivityOpen(false)}>
                 <div className="flex items-center gap-3">
                   <div className="flex items-center justify-center w-7 h-7 rounded-md bg-indigo-50 dark:bg-indigo-700">
                     <Award className="w-4 h-4 text-indigo-700 dark:text-indigo-100" />
                   </div>
-                  <span>Challenge</span>
+                  <span>Challenges</span>
                 </div>
               </Link>
-              <Link href="/activity/challenge" className="block px-4 py-3 mx-2 rounded-lg dark:text-indigo-200 hover:bg-indigo-100 dark:hover:bg-zinc-700" onClick={() => setIsActivityOpen(false)}>
+              <Link href="/activity/forum" className="block px-4 py-3 mx-2 rounded-lg dark:text-indigo-200 hover:bg-indigo-100 dark:hover:bg-zinc-700" onClick={() => setIsActivityOpen(false)}>
                 <div className="flex items-center gap-3">
                   <div className="flex items-center justify-center w-7 h-7 rounded-md bg-indigo-50 dark:bg-indigo-700">
                     <MessageCircleMore className="w-4 h-4 text-indigo-700 dark:text-indigo-100" />

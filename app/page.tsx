@@ -703,7 +703,7 @@ export default function LandingPage() {
         </div>
       </section>
       {/* ============================== FOOTER ============================== */}
-      <Footer previousCourses={previousCourses} />
+      <Footer />
     </div>
   );
 }
