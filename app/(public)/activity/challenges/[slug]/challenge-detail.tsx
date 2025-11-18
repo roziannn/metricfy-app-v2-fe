@@ -10,7 +10,8 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogFooter, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Flame, Users, BarChart } from "lucide-react";
+import { Flame, Users, BarChart, Calendar } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 export type Challenge = (typeof challengeItems)[0];
 
@@ -28,8 +29,8 @@ export default function ChallengeDetail({ challenge }: { challenge: Challenge })
         <div className="space-y-6">
           <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-2">{challenge.title}</h1>
 
-          <p className="text-md text-zinc-600 dark:text-zinc-400">
-            Diselenggarakan oleh <span className="font-semibold text-zinc-900 dark:text-zinc-200">{challenge.organizer}</span>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400">
+            Diselenggarakan oleh <span className="font-semibold text-zinc-600 dark:text-zinc-200">{challenge.organizer}</span>
           </p>
 
           <p className="text-zinc-600 dark:text-zinc-400 text-base leading-relaxed">{challenge.shortDesc}</p>
@@ -46,7 +47,7 @@ export default function ChallengeDetail({ challenge }: { challenge: Challenge })
         {/* TABS - span 2 */}
         <div className="lg:col-span-2 bg-white dark:bg-zinc-800 rounded-xl p-8">
           <Tabs defaultValue="deskripsi">
-            <TabsList className="mb-10">
+            <TabsList className="mb-8">
               <TabsTrigger value="deskripsi">Deskripsi</TabsTrigger>
               <TabsTrigger value="submission">Submission</TabsTrigger>
               <TabsTrigger value="announcement">Announcement</TabsTrigger>
@@ -135,36 +136,38 @@ export default function ChallengeDetail({ challenge }: { challenge: Challenge })
 
         {/* SIDEBAR DETAIL - span 1 */}
         <aside className="bg-white dark:bg-zinc-800 rounded-xl p-8 h-fit">
-          <h2 className="text-xl font-semibold mb-6 border-b pb-4">Detail Challenge</h2>
+          <h2 className="text-lg font-semibold mb-6 border-b pb-4">Detail Challenge</h2>
 
           <div className="space-y-5 text-sm text-zinc-700 dark:text-zinc-300">
             <div>
-              <p className="font-semibold text-zinc-900 dark:text-zinc-100 mb-1">XP</p>
+              <p className="font-semibold  mb-1">XP</p>
               <div className="flex items-center gap-2 font-medium text-zinc-600 dark:text-zinc-400">
                 <Flame className="w-4 h-4" /> {challenge.xp} XP
               </div>
             </div>
 
             <div>
-              <p className="font-semibold text-zinc-900 dark:text-zinc-100 mb-1">Peserta</p>
+              <p className="font-semibold  mb-1">Peserta</p>
               <div className="flex items-center gap-2 font-medium text-zinc-600 dark:text-zinc-400">
                 <Users className="w-4 h-4" /> {challenge.participants}/{challenge.quota}
               </div>
             </div>
 
             <div>
-              <p className="font-semibold text-zinc-900 dark:text-zinc-100 mb-1">Level</p>
+              <p className="font-semibold mb-1">Level</p>
               <div className="flex items-center gap-2 font-medium text-zinc-600 dark:text-zinc-400">
                 <BarChart className="w-4 h-4" /> {challenge.level}
               </div>
             </div>
 
             <div>
-              <p className="font-semibold text-zinc-900 dark:text-zinc-100 mb-1">Status</p>
+              <p className="font-semibold mb-1">Status</p>
               <div
-                className={`inline-block px-3 py-1 text-xs font-semibold rounded-full ${challenge.status === "Open" ? "bg-indigo-600 text-white" : challenge.status === "In Progress" ? "bg-yellow-500 text-white" : "bg-zinc-500 text-white"}`}
+                className={`inline-block px-3 py-2 text-sm  rounded-lg ${
+                  challenge.status === "Open" ? "bg-blue-500 text-white" : challenge.status === "In Progress" ? "bg-yellow-500 text-white" : "bg-zinc-300 text-zinc-500 dark:bg-zinc-600 dark:text-zinc-400"
+                }`}
               >
-                {challenge.status === "Open" ? "Pendaftaran Dibuka" : challenge.status === "In Progress" ? "Sedang Berlangsung" : "Selesai"}
+                {challenge.status === "Open" ? "Pendaftaran Dibuka" : challenge.status === "In Progress" ? "Sedang Berlangsung" : "Challenge Selesai"}
               </div>
             </div>
           </div>
@@ -180,17 +183,34 @@ export default function ChallengeDetail({ challenge }: { challenge: Challenge })
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
             {relatedChallenges.slice(0, 4).map((c) => (
-              <Link key={c.id} href={`/activity/challenges/${c.slug}`} className="overflow-hidden flex flex-col bg-white dark:bg-zinc-800 rounded-xl transition-all hover:shadow-md">
-                <div className="relative w-full h-44">
-                  <Image src={c.imageUrl || "/img/default.jpg"} alt={c.title} fill className="object-cover" />
-                </div>
+              <Card key={c.id} className="overflow-hidden flex flex-col gap-2 bg-white dark:bg-zinc-800 border-0 p-0 shadow-none transition-all">
+                <Link href={`/activity/challenges/${c.slug}`}>
+                  <div className="relative w-full h-44">
+                    <Image src={c.imageUrl || "/img/default.jpg"} alt={c.title} fill className="object-cover" />
+                  </div>
+                </Link>
 
-                <div className="flex flex-col flex-1 p-5">
-                  <h3 className="text-base font-semibold leading-snug hover:text-indigo-600 dark:hover:text-indigo-400">{c.title}</h3>
+                <CardContent className="flex flex-col flex-1 p-5">
+                  <Link href={`/activity/challenges/${c.slug}`}>
+                    <h3 className="text-base font-semibold text-zinc-800 dark:text-zinc-100 hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors leading-snug">{c.title}</h3>
+                  </Link>
 
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2 mb-3 flex-1 leading-relaxed">{c.description.length > 110 ? c.description.slice(0, 110) + "..." : c.description}</p>
-                </div>
-              </Link>
+                  <div
+                    className="text-sm text-zinc-600 dark:text-zinc-400 mt-2 mb-3 flex-1 leading-relaxed"
+                    dangerouslySetInnerHTML={{
+                      __html: c.shortDesc.length > 130 ? c.shortDesc.slice(0, 130) + "..." : c.shortDesc,
+                    }}
+                  ></div>
+
+                  <div className="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400 mt-auto">
+                    <span className="flex items-center gap-1.5">{c.organizer}</span>
+                    <span className="flex items-center gap-1.5">
+                      <Users className="w-3.5 h-3.5" />
+                      {c.quota || 0} peserta
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>

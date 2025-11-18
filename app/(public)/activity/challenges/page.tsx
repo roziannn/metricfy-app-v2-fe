@@ -64,7 +64,9 @@ export default function ChallengePage() {
 
                   <CardContent className="flex flex-col flex-1 p-4">
                     <div className="flex justify-start items-center mb-2">
-                      <h3 className="text-lg font-semibold hover:text-zinc-500 dark:hover:text-zinc-300 transition-colors duration-200">{item.title}</h3>
+                      <Link href={`/activity/challenges/${item.slug}`} className="block">
+                        <h3 className="text-lg font-semibold hover:text-zinc-500 dark:hover:text-zinc-300 transition-colors duration-200">{item.title}</h3>
+                      </Link>
                     </div>
 
                     <p className="text-sm text-zinc-600 dark:text-zinc-400 my-2 flex-1">{item.shortDesc}</p>
